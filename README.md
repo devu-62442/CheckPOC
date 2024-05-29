@@ -74,7 +74,7 @@ sequenceDiagram
     bot ->> rs: Create target groups referee offer
     bot ->> rs: Create Referrer Offer with referral rules Offer type: reward <br> Rule: dual payout Linked offer: referee offer id
     bot ->> rs: Create target group for referrer
-    note over bot,rs,rcs,ibs:jdjdjkdjkjkdjdfjk 
+    note over bot,rs:jdjdjkdjkjkdjdfjk dkdcdfdjcjkdfcjkldckljdjkldjkdejk
 ```
 
 
