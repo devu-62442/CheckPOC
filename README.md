@@ -50,3 +50,12 @@ zenuml
     Alice->Bob: Hi Bob
     Bob->Alice: Hi Alice
 ```
+
+
+| Selection |        |
+| --------- | ------ |
+| <li>- [ ] </li> |  |
+
+| Selection |        |
+| --------- | ------ |
+| <li>- [x] </li> |  |
