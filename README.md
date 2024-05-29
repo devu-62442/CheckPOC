@@ -51,11 +51,7 @@ zenuml
     Bob->Alice: Hi Alice
 ```
 
-
-| Selection |        |
-| --------- | ------ |
-| <li>- [ ] </li> |  |
-
-| Selection |        |
-| --------- | ------ |
-| <li>- [x] </li> |  |
+| demo                                              | demo |
+| ------------------------------------------------- | ---- |
+| <input type="checkbox" disabled checked /> works  |      |
+| <input type="checkbox" disabled /> works here too |      |
