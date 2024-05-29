@@ -50,7 +50,10 @@ zenuml
     Alice->Bob: Hi Bob
     Bob->Alice: Hi Alice
 ```
+| Selection |        |
+| --------- | ------ |
+| <li>- [ ] </li> |  |
 
-| Checkbox Experiments | [ ] unchecked header  | [x] checked header  |
-| ---------------------|:---------------------:|:-------------------:|
-| checkbox             | [ ] row               | [x] row             |
+| Selection |        |
+| --------- | ------ |
+| <li>- [x] </li> |  |
