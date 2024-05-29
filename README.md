@@ -60,7 +60,22 @@ zenuml
 | <ul><li>[ ] Twitter Subs Bot </li></ul> | <ul><li>[ ] ROS </li></ul>    | <ul><li>[ ] C# </li></ul> | <ul><li>[ ] Adobe Illustrator </li></ul> |<ul><li>[ ]  </li></ul> |
 
 
-
+```mermaid
+sequenceDiagram
+    autonumber
+    participant bot as d
+    participant rs as d
+    participant rcs as swd
+    participant ibs as dwxsd
+    participant tnc as dc
+    participant bos as ddcd
+    
+    bot ->> rs: Create Referee Offer with card spend or no track rule
+    bot ->> rs: Create target groups referee offer
+    bot ->> rs: Create Referrer Offer with referral rules Offer type: reward <br> Rule: dual payout Linked offer: referee offer id
+    bot ->> rs: Create target group for referrer
+    note over bot,rs,rcs,ibs:jdjdjkdjkjkdjdfjk 
+```
 
 
 
