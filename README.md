@@ -61,23 +61,13 @@ zenuml
 
 
 ```mermaid
-sequenceDiagram
-    autonumber
-    participant bot as d
-    participant rs as d
-    participant rcs as swd
-    participant ibs as dwxsd
-    participant tnc as dc
-    participant bos as ddcd
-    
-    bot ->> rs: Create Referee Offer with card spend or no track rule
-    bot ->> rs: Create target groups referee offer
-    bot ->> rs: Create Referrer Offer with referral rules Offer type: reward <br> Rule: dual payout Linked offer: referee offer id
-    bot ->> rs: Create target group for referrer
-    note over bot,rs:jdjdjkdjkjkdjdfjk dkdcdfdjcjkdfcjkldckljdjkldjkdejkdcmcdmkfkcjdjkfcdjhjfdcjkjlkcfdjkjkcfdjkljkcd  jcdnjkcdnjkdcnkjcndjkndjk ndsckncsdkjncsjnkjcdsn
+zenuml
+    title Annotators
+    @Actor Alice
+    @Database Bob
+    Alice->Bob: Hi Bob
+    Bob->Alice: Hi Alice
 ```
-
-
 
 - [ ] Mercury
 - [x] Venus
