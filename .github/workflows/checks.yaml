@@ -39,6 +39,8 @@ jobs:
             fi
           done
 
+          echo $OUTDATED_FILES
+          
           # Set the output variable with the list of outdated files
           if [[ -n "$OUTDATED_FILES" ]]; then
             echo "Outdated files found: $OUTDATED_FILES"
