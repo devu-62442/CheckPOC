@@ -35,7 +35,6 @@ jobs:
             # Check if the last commit date is older than 1 month
             if [[ "$LAST_COMMIT_DATE" < "$CUTOFF_DATE" ]]; then
               OUTDATED_FILES="$OUTDATED_FILES\n$file (Last updated: $LAST_COMMIT_DATE)"
-              echo $OUTDATED_FILES
             fi
           done
 
