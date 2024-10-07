@@ -29,5 +29,5 @@ jobs:
           for i in $FILES
             do 
               GIT_COMMIT_DATE=$(git log -1 --format=%ci -- $i | cut -d' ' -f1)
-              echo GIT_COMMIT_DATE
+              echo $GIT_COMMIT_DATE
             done
