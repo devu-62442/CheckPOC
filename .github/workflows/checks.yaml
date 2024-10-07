@@ -15,7 +15,7 @@ jobs:
 
       - name: Get date 1 month ago
         id: get_cutoff_date
-        run: echo "::set-output name=cutoff::$(date -d '1 month ago' +%Y-%m-%d)"
+        run: echo "$(date -d '1 month ago' +%Y-%m-%d)"
 
       - name: Find outdated Markdown files
         id: find_outdated_files
@@ -30,7 +30,6 @@ jobs:
           for file in $(git ls-files '*.md'); do
             # Get the last commit date of the file
             LAST_COMMIT_DATE=$(git log -1 --format=%ci -- $file | cut -d' ' -f1)
-
             echo $LAST_COMMIT_DATE
             
             # Check if the last commit date is older than 1 month
