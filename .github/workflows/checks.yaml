@@ -16,7 +16,7 @@ jobs:
       - name: Get date 1 month ago
         id: get_cutoff_date
         run: |
-          "CUTOFF_DATE=$(date -d '1 month ago' +%Y-%m-%d)" >> $GITHUB_ENV
+          echo "CUTOFF_DATE=$(date -d '1 month ago' +%Y-%m-%d)" >> $GITHUB_ENV
 
       - name: Find outdated Markdown files
         id: find_outdated_files
