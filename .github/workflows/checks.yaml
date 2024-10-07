@@ -28,12 +28,14 @@ jobs:
 
           # Loop through all .md files and check their last commit date
           for file in $(git ls-files '*.md'); do
+            echo $file
             # Get the last commit date of the file
             LAST_COMMIT_DATE=$(git log -1 --format=%ci -- $file | cut -d' ' -f1)
             
             # Check if the last commit date is older than 1 month
             if [[ "$LAST_COMMIT_DATE" < "$CUTOFF_DATE" ]]; then
               OUTDATED_FILES="$OUTDATED_FILES\n$file (Last updated: $LAST_COMMIT_DATE)"
+              echo $OUTDATED_FILES
             fi
           done
 
