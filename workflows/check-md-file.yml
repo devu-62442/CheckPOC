@@ -1,8 +1,9 @@
 name: Check Markdown Files
 
 on:
-  schedule:
-    - cron: '0 0 * * 0'  # This will run the action every Sunday at midnight
+  push:
+    branches
+      - master  # This will run the action every Sunday at midnight
 
 jobs:
   check-md-files:
