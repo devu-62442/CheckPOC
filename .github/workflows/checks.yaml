@@ -20,6 +20,7 @@ jobs:
       - name: Find outdated Markdown files
         id: find_outdated_files
         run: |
+          echo $CUTOFF_DATE
           # Initialize an empty variable to store outdated files
           OUTDATED_FILES=""
 
