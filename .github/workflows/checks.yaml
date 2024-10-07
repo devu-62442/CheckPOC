@@ -13,9 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Get date 6 months ago
+      - name: Get date 1 month ago
         id: get_cutoff_date
-        run: echo "::set-output name=cutoff::$(date -d '6 months ago' +%Y-%m-%d)"
+        run: echo "::set-output name=cutoff::$(date -d '1 month ago' +%Y-%m-%d)"
 
       - name: Find outdated Markdown files
         id: find_outdated_files
@@ -31,7 +31,7 @@ jobs:
             # Get the last commit date of the file
             LAST_COMMIT_DATE=$(git log -1 --format=%ci -- $file | cut -d' ' -f1)
             
-            # Check if the last commit date is older than 6 months
+            # Check if the last commit date is older than 1 month
             if [[ "$LAST_COMMIT_DATE" < "$CUTOFF_DATE" ]]; then
               OUTDATED_FILES="$OUTDATED_FILES\n$file (Last updated: $LAST_COMMIT_DATE)"
             fi
