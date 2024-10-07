@@ -17,7 +17,9 @@ jobs:
         id: find_md_files
         run: |
           SIX_MONTHS_AGO=$(date -d '6 months ago' +%Y-%m-%d)
+          echo SIX_MONTHS_AGO
           OUTDATED_FILES=$(git ls-files '*.md' | xargs -I{} git log -1 --format="%ci {}" -- {} | awk -v cutoff="$SIX_MONTHS_AGO" '$1 < cutoff {print $4}')
+          echo OUTDATED_FILES
           
           if [ -z "$OUTDATED_FILES" ]; then
             echo "No outdated Markdown files."
