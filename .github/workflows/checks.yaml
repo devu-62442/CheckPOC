@@ -14,7 +14,6 @@ jobs:
         uses: actions/checkout@v3
         
       - name: Test
-        if: steps.copy_openapi.outputs.changed == 'TRUE' && env.skip != 'true'
         run: |
           REPO_NAME="${{ github.repository }}"
           BRANCH_NAME="${{ github.ref_name }}"
