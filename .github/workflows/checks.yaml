@@ -16,12 +16,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         
-      - name: Test
+
+      - name: Extract repository name
         run: |
           REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
-          BRANCH_NAME="${github.head_ref}"
-      
-          echo $REPO_NAME
-          echo $BRANCH_NAME
+          echo "Repository name is $REPO_NAME"
+
           
          
