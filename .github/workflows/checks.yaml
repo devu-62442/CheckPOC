@@ -19,7 +19,7 @@ jobs:
       - name: Test
         run: |
           REPO_NAME="${{ github.repository }}"
-          BRANCH_NAME="${{ github.ref_name }}"
+          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
       
           echo $REPO_NAME
           echo $BRANCH_NAME
