@@ -12,26 +12,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
-      - name: Get date 1 month ago
-        id: get_cutoff_date
+        
+      - name: Test
+        if: steps.copy_openapi.outputs.changed == 'TRUE' && env.skip != 'true'
         run: |
-          echo "CUTOFF_DATE=$(date -d '1 month ago' +%Y-%m-%d)" >> $GITHUB_ENV
-
-      - name: Find outdated Markdown files
-        id: find_outdated_files
-        run: |
-          echo $CUTOFF_DATE
-          # Initialize an empty variable to store outdated files
-          OUTDATED_FILES=""
-          FILES=$(git ls-files '*.md')
-          echo $FILES
-          for file in $FILES; do
-            echo "Getting last commit date for $file"
-            
-            # Get the last commit date for the file
-            LAST_COMMIT_DATE=$(git log -1 --format="%ci" -- "$file")
-
-            # Print the last commit date
-            echo "Last commit date for $file: $LAST_COMMIT_DATE"
-          done
+          REPO_NAME="${{ github.repository }}"
+          BRANCH_NAME="${{ github.ref_name }}"
+      
+          echo $REPO_NAME
+          
+         
