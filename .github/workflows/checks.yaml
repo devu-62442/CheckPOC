@@ -18,7 +18,7 @@ jobs:
         
       - name: Test
         run: |
-          REPO_NAME="${{ github.repository }}" | cut -d'/' -f2)
+          REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
           BRANCH_NAME="${github.head_ref}"
       
           echo $REPO_NAME
