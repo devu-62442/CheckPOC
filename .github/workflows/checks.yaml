@@ -3,7 +3,10 @@ name: Check Markdown Files
 on:
   push:
     branches:
-      - master   # This will run the action every Sunday at midnight
+    - master
+  pull_request:
+    branches:
+    - master
 
 jobs:
   check-markdown-updates:
