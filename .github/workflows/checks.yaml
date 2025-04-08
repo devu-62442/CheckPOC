@@ -1,26 +1,31 @@
-name: Check Markdown Files
+name: Test PR Merge Metadata
 
 on:
-  push:
-    branches:
-    - master
   pull_request:
-    branches:
-    - master
+    types:
+      - closed  # Fires on PR close (merged or just closed)
 
 jobs:
-  check-markdown-updates:
+  test-pr-merge:
+    if: github.event.pull_request.merged == true  # Run only if PR was merged
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        
-
-      - name: Extract repository name
+      - name: Print PR Merge Details
         run: |
-          REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
-          echo "Repository name is $REPO_NAME"
-
+          echo "✅ Pull Request was merged!"
+          echo "🔢 PR Number: ${{ github.event.pull_request.number }}"
+          echo "📝 PR Title: ${{ github.event.pull_request.title }}"
+          echo "🔗 PR URL: ${{ github.event.pull_request.html_url }}"
+          echo "🔀 Source Branch: ${{ github.event.pull_request.head.ref }}"
+          echo "🎯 Target Branch: ${{ github.event.pull_request.base.ref }}"
+          echo "🧑‍💻 Merged By: ${{ github.event.pull_request.merged_by.login }}"
+          echo "🔐 Merge Commit SHA: ${{ github.event.pull_request.merge_commit_sha }}"
           
-         
+          # Format Slack-style message
+          echo ""
+          echo ":white_check_mark: *PR Merged Notification*"
+          echo ":file_folder: *Repository:* ${{ github.repository }}"
+          echo ":link: *Pull Request:* <${{ github.event.pull_request.html_url }}|#${{ github.event.pull_request.number }} - ${{ github.event.pull_request.title }}>"
+          echo ":twisted_rightwards_arrows: *Merged from:* ${{ github.event.pull_request.head.ref }} → ${{ github.event.pull_request.base.ref }}"
+          echo ":bust_in_silhouette: *Merged by:* ${{ github.event.pull_request.merged_by.login }}"
