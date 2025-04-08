@@ -16,12 +16,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         
-      - name: Test
+
+      - name: Extract repository name
         run: |
-          REPO_NAME="${{ github.repository }}"
-          BRANCH_NAME="${{ github.head_ref }}"
-      
-          echo $REPO_NAME
-          echo $BRANCH_NAME
-          
-         
+            PR_NUMBER="${{ github.event.pull_request.number }}"
+            PR_TITLE="${{ github.event.pull_request.title }}"
+            PR_URL="${{ github.event.pull_request.html_url }}"
+            
+            SOURCE_BRANCH="${{ github.event.pull_request.head.ref }}"
+            TARGET_BRANCH="${{ github.event.pull_request.base.ref }}"
+            
+            REPO_NAME_FULL="${{ github.repository }}"
+            REPO_NAME="${REPO_NAME_FULL##*/}"  # Extract only the repo name
+        
+            SOURCE_BRANCH_URL="https://github.com/${REPO_NAME_FULL}/tree/${SOURCE_BRANCH}"
+            
+            echo "PR_NUMBER"
+            echo "PR_TITLE"
+            echo "PR_URL"
+            echo "SOURCE_BRANCH"
+            echo "TARGET_BRANCH"
+            echo "REPO_NAME_FULL"
+            echo "REPO_NAME"
+            echo "SOURCE_BRANCH_URL
